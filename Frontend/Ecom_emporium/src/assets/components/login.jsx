@@ -1,14 +1,41 @@
-import React from 'react'
+export const Login = () => {
+    const styles = {
+        container: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            width: '300px',
+            margin: '50px auto',
+            padding: '20px',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#f9f9f9',
+        },
+        label: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+        },
+        input: {
+            width: '100%',
+            padding: '8px',
+            marginTop: '5px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            fontSize: '14px',
+        },
+    };
 
-const Login = () => {
     return (
-    <div>
-        <label>Username</label>
-        <input type="text" placeholder='Enter username' />
-        <label>Password</label>
-        <input type="text" placeholder='Enter password' />
-    </div>
-    )
-}
+        <div style={styles.container}>
+            <label style={styles.label}>Username</label>
+            <input type="text" placeholder="Enter Username" style={styles.input} />
 
-export default Login
+            <label style={styles.label}>Password</label>
+            <input type="text" placeholder="Enter Password" style={styles.input} />
+            <button type="submit" style={{ padding: '8px 16px', backgroundColor: '#4CAF50', color: 'white', borderRadius: '4px', cursor: 'pointer' }}>Login</button>
+        </div>
+    );
+};
