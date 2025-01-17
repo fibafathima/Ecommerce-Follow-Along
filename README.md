@@ -13,3 +13,9 @@ This project is a fully functional **E-Commerce Application** designed to facili
 
 This project aims to demonstrate a comprehensive understanding of software design, modern web development, and database management principles. 
 It highlights the use of best practices in scalability, security, and performance optimization.  
+
+### Updates
+ - created a repository
+ - created a login page
+ - created a server page and conncted to mongosDB
+ 
