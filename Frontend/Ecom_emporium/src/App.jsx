@@ -1,9 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/login.jsx";
-import SignUp from "./components/signup.jsx"
-import Home from "./components/Home.jsx";
-
-// ... rest of the code remains the same
+import Login from "./components/Login";
+import SignUp from "./components/signup";
+import Home from "./components/Home";
 
 function App() {
   return (
