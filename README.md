@@ -50,7 +50,7 @@ This project is all about creating a fully functional e-commerce website where u
 
 
 
-<<<<<<< HEAD
+
 ## Milestones
 ### Milestone 1: Repository Creation
 - Created a GitHub repository named "Ecommerce-Follow-Along" with a README file.
