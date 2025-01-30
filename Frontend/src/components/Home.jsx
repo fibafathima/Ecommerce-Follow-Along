@@ -1,10 +1,23 @@
-
 import { useNavigate } from "react-router-dom";
-import productData from "./data.json";
+// import productData from "./data.json"
 import Cart from "./Cart";
+import { useEffect, useState } from "react";
 
 function Home() {
     const navigate = useNavigate();
+
+    let [productData,setProductData]=useState([]);
+
+    useEffect(()=>{
+        fetch("http://localhost:8080/product").then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            console.log(res)
+            setProductData(res.data)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    })
 
     const navBarStyle = {
         display: "flex",
@@ -72,10 +85,6 @@ function Home() {
                     <span style={linkStyle} onClick={() => navigate("/login")}>
                         Login
                     </span>
-                    <span style={linkStyle} onClick={() => navigate("/ProductForm")}>
-                        Add a Product
-                    </span>
-                    
                 </div>
             </nav>
             <div style={containerStyle}>

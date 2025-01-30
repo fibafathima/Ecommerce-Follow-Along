@@ -5,7 +5,14 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/create
-  body: none
+  url: http://localhost:8080/product/create
+  body: multipartForm
   auth: none
+}
+
+body:multipart-form {
+  productName: apple
+  productDescription: nbsdiehdwjdowugfwndlihuiebfffffffffffffffffffffehdowww
+  productPrice: Twenty
+  productImage: @file(C:\Users\fibaa\OneDrive\Pictures\Screenshots\Screenshot 2024-10-21 135255.png|C:\Users\fibaa\OneDrive\Pictures\Screenshots\Screenshot 2024-10-21 135726.png|C:\Users\fibaa\OneDrive\Pictures\Screenshots\Screenshot 2024-10-21 135808.png)
 }

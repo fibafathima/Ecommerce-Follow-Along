@@ -104,3 +104,12 @@ This project is all about creating a fully functional e-commerce website where u
  3. Why Validation?
 
    - Ensures only valid data is saved, keeping the database accurate.
+
+### Milestone 11 :  Data Fetching and Display:
+ This milestone focuses on fetching product data from the backend and dynamically displaying it on the frontend using product cards
+
+ **key objectives**:
+  - Implement a backend endpoint to retrieve all product data from the MongoDB nd send it to the frontend
+  - create a frontend function to fetch the product data from the endpoint
+  - Dynamically render the retrieved product data using the existing  product card component
+  
