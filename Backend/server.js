@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const { userModel } = require('./model/user.model');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const {productRouter}=require('./routes/product.route')
 
 require('dotenv').config();
 const app = express();
@@ -27,18 +28,23 @@ app.get("/ping", (req, res) => {
 app.post("/create", async (req, res) => {
     let payLoad = req.body;
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(payLoad.password, 10);
-    payLoad.password = hashedPassword; // Replace the plain password with the hashed one
-
-    try {
-        let new_user = new userModel(payLoad);
-        await new_user.save();
-        res.send({ "message": "Hurray! Successfully saved the user to the database" });
-    } catch (error) {
-        console.log(error);
-        res.send({ "error": error });
+    // Ensure password is received from request body
+    const password = req.body.password; 
+    if (!password) {
+        return res.status(400).json({ error: "Password is required" });
     }
+    
+    // Hash password with salt rounds
+    const saltRounds = 10;
+    bcrypt.hash(password, saltRounds)
+        .then(hashedPassword => {
+            // Store hashed password in database
+            console.log("Hashed Password:", hashedPassword);
+        })
+        .catch(err => {
+            console.error("Error hashing password:", err);
+        });
+    
 });
 
 const multer = require('multer');
@@ -116,6 +122,8 @@ app.post("/login", async (req, res) => {
         res.json({ "Message": "Something went wrong!" });
     }
 });
+
+app.use("/product",productRouter)
 
 app.listen(process.env.PORT, async () => {
     try {

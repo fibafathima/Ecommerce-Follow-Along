@@ -72,6 +72,10 @@ function Home() {
                     <span style={linkStyle} onClick={() => navigate("/login")}>
                         Login
                     </span>
+                    <span style={linkStyle} onClick={() => navigate("/ProductForm")}>
+                        Add a Product
+                    </span>
+                    
                 </div>
             </nav>
             <div style={containerStyle}>
