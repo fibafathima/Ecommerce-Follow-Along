@@ -97,10 +97,10 @@ This project is all about creating a fully functional e-commerce website where u
 ### Milestone 10: Product Schema & Endpoint
   1. Define Product Schema:
 
-    - Define product details (name, description, price, image URL) using Mongoose with validation.
+  - Define product details (name, description, price, image URL) using Mongoose with validation.
   2. Endpoint Creation:
 
-    - Create a POST endpoint to save product data to MongoDB.
+  - Create a POST endpoint to save product data to MongoDB.
  3. Why Validation?
 
    - Ensures only valid data is saved, keeping the database accurate.
