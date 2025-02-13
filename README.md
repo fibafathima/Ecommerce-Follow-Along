@@ -113,3 +113,55 @@ This project is all about creating a fully functional e-commerce website where u
   - create a frontend function to fetch the product data from the endpoint
   - Dynamically render the retrieved product data using the existing  product card component
   
+### Milestone 12: My Products Page:
+  This milestone focuses on creating a "My Products" page that displayes only the products added by the logged-in user (identified by their email)
+  
+  **Key objectives**:
+    - Implement a backend endpoint to retrieve products from MongoDB , filtering by the user's email adress
+    - create a frontend function to fetch the filtered product data from the endpoint 
+    - Dynamically render the retrieved data on the "My products " page using the existing product card component
+
+
+### Milestone 13: Update Existing Data
+ 
+1. **Backend:**
+   - Create an endpoint to update existing product data in MongoDB.
+
+2. **Frontend:**
+   - Add an edit button to the product card.
+   - On click, send the product data to a form, auto-fill the fields, and allow editing.
+
+3. **Dynamic Update:**
+   - After editing, save the updated data back to MongoDB. 
+
+### Milestone 14: Delete Product by ID
+
+1. **Backend:**
+   - Create an endpoint to delete a product from MongoDB using its ID.
+
+2. **Frontend:**
+   - Add a delete button to the product card.
+   - On click, send the product ID to the backend for deletion.
+
+3. **Dynamic Update:**
+   - Remove the deleted product from the UI without refreshing the page.
+
+
+### Milestone 15: Responsive Navbar  
+
+1. **Create Navbar Component:**  
+   - Add links for Home, My Products, Add Product, and Cart.  
+
+2. **Make It Responsive:**  
+   - Ensure the navbar works well on all screen sizes.  
+
+3. **Integrate with Pages:**  
+   - Add the navbar to all pages for smooth navigation.  
+  
+### Milestone 16 
+
+1. **Create `ProductInfo.jsx`** – Fetch and display product details.  
+2. **Add Quantity & Cart Button** – Allow quantity selection and add to cart.  
+3. **Update Routing** – Add /product/:id route in App.jsx.  
+4. **Make Products Clickable** – Link product cards to ProductInfo.jsx.  
+5. **Enhance Cart** (Optional) – Store cart data in state/backend.

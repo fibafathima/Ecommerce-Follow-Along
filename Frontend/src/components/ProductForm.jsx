@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-const ProductForm = () => {
+const ProductForm = ({ initialData = {}, onDelete }) => {
+
     const [formData, setFormData] = useState({
-        productName: "",
-        productDescription: "",
-        productPrice: "",
+        productName: initialData.productName || "",
+        productDescription: initialData.productDescription || "",
+        productPrice: initialData.productPrice || "",
         productImage: null, 
     });
+
 
     const [error, setError] = useState("");
 
@@ -26,20 +28,55 @@ const ProductForm = () => {
         }
     };
 
+    const handleDelete = () => {
+        fetch(`http://localhost:8080/product/delete/${initialData._id}`, {
+            method: 'DELETE',
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            alert(data.message);
+            onDelete(); 
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    };
+
     const handleSubmit = (e) => {
+
         e.preventDefault();
         
         const { productName, productDescription, productPrice, productImage } = formData;
         
-
-        if (!productName || !productDescription || !productPrice || !productImage) {
+        if (!productName || !productDescription || !productPrice) {
             setError('All fields are required');
             return;
         } else {
             setError('');
         }
 
-        alert("Product added successfully!");
+
+        fetch('http://localhost:8080/product/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        body: JSON.stringify({
+            productName,
+            productDescription,
+            productPrice,
+            productImage
+        }),
+
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            alert(data.message);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
 
         console.log(formData)
     };
@@ -165,7 +202,9 @@ const ProductForm = () => {
                     />
                 </div>
                 {error && <p style={errorStyle}>{error}</p>}
+
                 <button type="submit" style={buttonStyle}>
+
                     Add Product
                 </button>
             </form>

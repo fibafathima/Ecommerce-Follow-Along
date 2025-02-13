@@ -24,7 +24,7 @@ const Login = () => {
 
     const formStyle = {
         width: "100%",
-        maxWidth: "360px", // Reduced max width for the form
+        maxWidth: "360px",
         padding: "20px",
         border: "1px solid #ddd",
         borderRadius: "8px",
@@ -34,7 +34,7 @@ const Login = () => {
 
     const inputStyle = {
         width: "100%",
-        maxWidth: "320px", // Restrict width for input fields
+        maxWidth: "320px", 
         padding: "10px",
         margin: "10px 0",
         border: "1px solid #ccc",

@@ -110,7 +110,7 @@ app.post("/login", async (req, res) => {
             bcrypt.compare(password, hashedPassword, function (err, result) {
                 if (result) {
                     let token = jwt.sign({ "user ID": user[0]._id }, process.env.SECRET_KEY);
-                    res.send({ "msg": "Login Successful", "token": token });
+                    res.send({ "msg": "Login Successful", "token": token,email });
                 } else {
                     res.send({ "msg": "Invalid Password" });
                 }

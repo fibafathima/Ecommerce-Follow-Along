@@ -64,8 +64,8 @@ const SignUp = () => {
     };
 
     const inputStyle = {
-        width: "100%",       // Keep it responsive
-        maxWidth: "300px",   // Reduced width of the input fields
+        width: "100%",       
+        maxWidth: "300px",   
         padding: "10px",
         border: "1px solid #ccc",
         borderRadius: "5px",
@@ -87,7 +87,7 @@ const SignUp = () => {
 
     const buttonStyle = {
         padding: "12px",
-        width: "100%",
+        width: "90%",
         backgroundColor: "#007bff",
         color: "#fff",
         border: "none",
