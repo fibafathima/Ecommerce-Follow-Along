@@ -15,6 +15,7 @@ import Addresses from './pages/Addresses'
 import MyOrders from './pages/MyOrders'
 import FirstPage from './pages/FirstPage'
 import Confirmation from './pages/Confirmation'
+import PayPal from './pages/PayPal'
 
 function App() {
   
@@ -35,6 +36,8 @@ function App() {
         <Route path="/addresses" element={<Addresses />}></Route>
         <Route path="/confirmation" element={<Confirmation />}></Route>
         <Route path="/orders" element={<MyOrders />}></Route>
+        <Route path="/paypal" element={<PayPal />}></Route>
+        
       </Routes>
     </>
   );
