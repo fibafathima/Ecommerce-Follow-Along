@@ -1,59 +1,36 @@
-import { Link, useNavigate } from 'react-router-dom';
-
-const navBarStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "10px 20px",
-    backgroundColor: "#007bff",
-    color: "white",
-    position: "sticky",
-    top: "0",
-    width: "100%",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    boxSizing: "border-box",
-    zIndex: 10,
-};
-
-const logoStyle = {
-    fontSize: "24px",
-    fontWeight: "bold",
-    cursor: "pointer",
-};
-
-const linkContainerStyle = {
-    display: "flex",
-    gap: "20px",
-};
-
-const linkStyle = {
-    color: "white",
-    textDecoration: "none",
-    cursor: "pointer",
-    fontSize: "16px",
-    fontWeight: "bold",
-};
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const navigate = useNavigate();
     return (
-        <nav style={navBarStyle}>
-            <div style={logoStyle} onClick={() => navigate("/")}>
-                E-Commerce
-            </div>
-            <ul style={linkContainerStyle}>
-                <li><Link to="/" style={linkStyle}>Home</Link></li>
-                <li><Link to="/my-products" style={linkStyle}>My Products</Link></li>
-                <li><Link to="/productForm" style={linkStyle}>Add Product</Link></li>
-                
-                <li><Link to="/cart" style={linkStyle}>Cart</Link></li>
-                <li><Link to="/signup" style={linkStyle}>Sign Up</Link></li>
-                <li><Link to="/login" style={linkStyle}>Login</Link></li>
-            </ul>
+      <div>
+        <nav className="flex justify-end p-8 bg-purple-300 text-white">
+          <button className="px-6 py-2 mx-2 text-lg font-semibold bg-blue-800 rounded-lg hover:bg-blue-700">
+            <Link to={"/"}>Home</Link>
+          </button>
+          <button className="px-6 py-2 mx-2 text-lg font-semibold bg-blue-800 rounded-lg hover:bg-blue-700">
+            <Link to={"/"}>My-Products</Link>
+          </button>
+          {/* <button className="px-6 py-2 mx-2 text-lg font-semibold bg-blue-800 rounded-lg hover:bg-blue-700">
+            <Link to={"/login"}>Login</Link> */}
+          {/* </button> */}
+          {/* <button className="px-6 py-2 mx-2 text-lg font-semibold bg-green-700 rounded-lg hover:bg-green-600">
+            <Link to={"/signup"}>Sign Up</Link>
+        </button> */}
+          <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
+            <Link to={"/add-product"}>Add Product</Link>
+          </button>
+          <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
+            <Link to={"/cart"}>Cart</Link>
+          </button>
+          <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
+            <Link to={"/orders"}>My Orders</Link>
+          </button>
+          <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-full">
+            <Link to={"/profile"}>Profile</Link>
+          </button>
         </nav>
-    );
-};
+      </div>
+    );  
+}
 
-
-
-export default Navbar;
+export default Navbar
