@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate()
   async function fetchOrders() {
+    const token = localStorage.getItem("Token")
+    if (token === null){
+      alert("Login First")
+      navigate('/login')
+    }
     try {
       const response = await fetch("http://localhost:8080/orders",{
         method:"GET",
         headers:{
           "Content-Type":"application/json",
-          "Authorization":`Bearer ${localStorage.getItem("Token")}`
+          "Authorization":`Bearer ${token}`
         }
       });
       if (!response.ok) {

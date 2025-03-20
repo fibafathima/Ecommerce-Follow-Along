@@ -64,6 +64,11 @@ app.post("/login",async(req,res)=>{
             bcrypt.compare(password,hasPassword,function(err,result){
                 if(result){
                     let token=jwt.sign({"userID": user[0]._id,"email":user[0].email},process.env.SECRET_KEY);
+                    res.cookie("token",token,{
+                        httpOnly:true,
+                        secure: process.env.NODE_ENV === "production",
+                        maxAge:3600000,
+                    })
                     res.send({"msg":"Login successfully","token":token, email})
                 } else{
                     res.send({"msg":"Invalid ! Failed"})
@@ -77,11 +82,10 @@ app.post("/login",async(req,res)=>{
     }
 })
 
-app.use('/orders', orderRouter)
+app.use('/orders',authenticate, orderRouter)
 app.use('/product', productRouter)
-app.use(authenticate)
-app.use('/user', userRouter)
-app.use('/cart', cartRouter)
+app.use('/user',authenticate, userRouter)
+app.use('/cart',authenticate, cartRouter)
 
 app.listen(Port,async()=>{
     try{

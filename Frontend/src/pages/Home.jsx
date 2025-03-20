@@ -19,6 +19,10 @@ const Home = () => {
       return res.json();
     }).then((res)=>{
       console.log(res)
+      if (res.message== "Login pls"){
+        alert("Login first")
+        navigate("/login")
+      }
       setProductData(res.data)
       setLoading(false);
     }).catch((err)=>{

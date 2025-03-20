@@ -11,6 +11,11 @@ const Card = ({ product, handleDelete }) => {
         : `http://localhost:8080/uploads/${product.productImage[0]}`;
     const navigate=useNavigate();
 const handleClick=()=>{
+  const token = localStorage.getItem("Token")
+  if (token === null){
+    alert("Login First")
+    navigate('/login')
+  }
     navigate(`/edit-product/${product._id}`)
 }
 

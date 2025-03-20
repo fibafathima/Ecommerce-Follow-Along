@@ -43,6 +43,11 @@ const ProductForm = () => {
         body: formData,
         "Content-Type":"application/json"
       });
+      if (result.message === "Login pls"){
+          alert("Login First")
+          navigate('/login')
+        
+      }
       console.log("Product added successfully:", result);
       setProductName("");
       setProductDescription("");

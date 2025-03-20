@@ -7,9 +7,14 @@ const Cart = () => {
   const navigate=useNavigate();
   
   const fetchCartItems =  () => {
+    const token = localStorage.getItem("Token")
+    if (token === null){
+      alert("Login First")
+      navigate('/login')
+    }
       fetch("http://localhost:8080/cart/products",{
         method:"GET",
-        headers: {authorization:`Bearer ${localStorage.getItem("Token")}`,
+        headers: {authorization:`Bearer ${token}`,
           "Content-Type": "application/json"}
       }).then((res)=>res.json())
       .then((res)=>{
