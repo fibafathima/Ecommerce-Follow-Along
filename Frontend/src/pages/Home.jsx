@@ -12,7 +12,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   let [productData, setProductData]=useState([])
 
-  let email=useSelector((state)=>state.user.email)
+  // let email=useSelector((state)=>state.user.email)
 
   useEffect(()=>{
     fetch("http://localhost:8080/product").then((res)=>{
@@ -32,6 +32,11 @@ const Home = () => {
   },[])
 
   const handleDelete = async (id) => {
+  const token = localStorage.getItem("Token")
+    if (token === null){
+      alert("Login First")
+      navigate('/login')
+    }
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this product?"
     );
@@ -40,6 +45,7 @@ const Home = () => {
       let response = await axios.delete(
         `http://localhost:8080/product/delete/${id}`
       );
+      
       console.log(response.data.message);
       const filtered_data = productData.filter((e) => e._id !== id);
       setProductData(filtered_data);
