@@ -18,7 +18,7 @@ const Confirmation = () => {
 
     const fetchCartItems = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/cart/products", {
+            const res = await axios.get("https://ecommerce-follow-along-pjqp.onrender.com/cart/products", {
                 headers: {
                     authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const Confirmation = () => {
     const updateQuantity = async (cartItemId, type) => {
         try {
             await axios.put(
-                `http://localhost:8080/cart/${type}/${cartItemId}`, 
+                `https://ecommerce-follow-along-pjqp.onrender.com/cart/${type}/${cartItemId}`, 
                 {}, 
                 { headers: { authorization: `Bearer ${token}` } }
             );
@@ -79,8 +79,8 @@ const Confirmation = () => {
         const orderData = {
             email,
             products: cartItems.map((item) => ({
-                _id: item.product._id,
-                quantity: item.quantity,
+                _id: item?.product?._id,
+                quantity: item?.quantity,
             })),
             address: {
                 addressType: selectedAddress.addressType,
@@ -94,7 +94,7 @@ const Confirmation = () => {
         if (selectedMethod === "cod") {
             try {
                 const response = await axios.post(
-                    "http://localhost:8080/orders/place",
+                    "https://ecommerce-follow-along-pjqp.onrender.com/orders/place",
                     orderData,
                     {
                         headers: {
@@ -133,13 +133,13 @@ const Confirmation = () => {
                         className="flex items-center justify-between p-4 bg-white shadow-md rounded-lg mb-4"
                     >
                         <img
-                            src={item.product.productImage[0]}
-                            alt={item.product.productName}
+                            src={item?.product?.productImage[0]}
+                            alt={item?.product?.productName}
                             className="w-24 h-24 object-cover rounded-md"
                         />
                         <div>
-                            <h3 className="text-xl font-semibold">{item.product.productName}</h3>
-                            <p className="text-gray-600">${item.product.productPrice}</p>
+                            <h3 className="text-xl font-semibold">{item?.product?.productName}</h3>
+                            <p className="text-gray-600">${item?.product?.productPrice}</p>
                         </div>
                         <div className="flex items-center">
                             <button

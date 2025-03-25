@@ -35,7 +35,7 @@ const SignUp = () => {
         return;
       }
 
-      fetch("http://localhost:8080/signup", {
+      fetch("https://ecommerce-follow-along-pjqp.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

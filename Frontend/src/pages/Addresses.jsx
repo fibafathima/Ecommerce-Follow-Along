@@ -13,7 +13,7 @@ const Addresses = () => {
       return;
     }
 
-    fetch("http://localhost:8080/user/profile", {
+    fetch("https://ecommerce-follow-along-pjqp.onrender.com/user/profile", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

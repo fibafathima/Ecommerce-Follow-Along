@@ -36,7 +36,7 @@ const Login = () => {
       alert("Please enter a valid password in the range of 8-16");
       return;
     }
-    fetch("http://localhost:8080/login", {
+    fetch("https://ecommerce-follow-along-pjqp.onrender.com/login", {
       method: "POST",
       body: JSON.stringify({ email: form.email, password: form.password }),
       headers: { "Content-Type": "application/json" },

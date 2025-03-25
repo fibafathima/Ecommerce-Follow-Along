@@ -8,7 +8,7 @@ const ProductDetailsPage = () => {
     const navigate=useNavigate()
 
     useEffect(()=>{
-        fetch(`http://localhost:8080/product/${id}`)
+        fetch(`https://ecommerce-follow-along-pjqp.onrender.com/product/${id}`)
         .then((res) => res.json())
         .then((data) => {
             setProduct(data.data)
@@ -18,7 +18,7 @@ const ProductDetailsPage = () => {
     },[id])
 
     const handleAddToCart=()=>{
-        fetch('http://localhost:8080/cart/add',{
+        fetch('https://ecommerce-follow-along-pjqp.onrender.com/cart/add',{
             method:"POST",
             body:JSON.stringify({productId:product._id, quantity:quantity}),
             headers:{"Content-Type":"application/json",
@@ -45,7 +45,7 @@ const ProductDetailsPage = () => {
             {product.productName}
           </h1>
           <img
-            src={`http://localhost:8080/uploads/${product.productImage}`}
+            src={`https://ecommerce-follow-along-pjqp.onrender.com/uploads/${product.productImage}`}
             alt={product.productName}
             className="w-full h-80 object-cover rounded-md mb-4"
           />

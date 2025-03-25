@@ -38,7 +38,7 @@ const ProductForm = () => {
     });
 
     try {
-      const result = await fetch("http://localhost:8080/product/create", {
+      const result = await fetch("https://ecommerce-follow-along-pjqp.onrender.com/product/create", {
         method: "POST",
         body: formData,
         "Content-Type":"application/json"

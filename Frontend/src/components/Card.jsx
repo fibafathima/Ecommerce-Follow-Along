@@ -8,7 +8,7 @@ const Card = ({ product, handleDelete }) => {
       const isFullURL = product.productImage[0]?.startsWith("http");
       const imgPath = isFullURL
         ? product.productImage[0]
-        : `http://localhost:8080/uploads/${product.productImage[0]}`;
+        : `https://ecommerce-follow-along-pjqp.onrender.com/uploads/${product.productImage[0]}`;
     const navigate=useNavigate();
 const handleClick=()=>{
   const token = localStorage.getItem("Token")

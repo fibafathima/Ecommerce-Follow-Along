@@ -50,7 +50,7 @@ const AddressForm = () => {
         addressType,
       };
       try {
-        const response = await fetch("http://localhost:8080/user/add-address", {
+        const response = await fetch("https://ecommerce-follow-along-pjqp.onrender.com/user/add-address", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,

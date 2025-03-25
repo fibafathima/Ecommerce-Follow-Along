@@ -15,7 +15,7 @@ const Profile = () => {
         alert("Login first")
         navigate("/login"); 
       }
-        fetch("http://localhost:8080/user/profile", {
+        fetch("https://ecommerce-follow-along-pjqp.onrender.com/user/profile", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("Token")}`,

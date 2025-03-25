@@ -14,7 +14,7 @@ function Orders() {
       navigate('/login')
     }
     try {
-      const response = await fetch("http://localhost:8080/orders",{
+      const response = await fetch("https://ecommerce-follow-along-pjqp.onrender.com/orders",{
         method:"GET",
         headers:{
           "Content-Type":"application/json",
@@ -38,7 +38,7 @@ function Orders() {
   }, []); 
 
   const handleCancelOrder = (id) => {
-    fetch(`http://localhost:8080/orders/update/${id}`, {
+    fetch(`https://ecommerce-follow-along-pjqp.onrender.com/orders/update/${id}`, {
       method: "PATCH",
       body: JSON.stringify({ cancelled: true }),
       headers: { "Content-Type": "application/json" },
@@ -73,18 +73,18 @@ function Orders() {
               className="border p-4 rounded-lg flex items-center bg-white shadow-sm"
             >
               <div className="flex-grow">
-                <p className="text-lg font-medium">{order.product.productName}</p>
-                <p className="text-gray-700">Quantity: {order.quantity}</p>
+                <p className="text-lg font-medium">{order?.product?.productName}</p>
+                <p className="text-gray-700">Quantity: {order?.quantity}</p>
                 <p className="text-gray-500 text-sm">
                   Address:{" "}
-                  {order.address
-                    ? `${order.address.street}, ${order.address.city}, ${order.address.state}, ${order.address.zip}`
+                  {order?.address
+                    ? `${order?.address?.street}, ${order?.address?.city}, ${order?.address?.state}, ${order?.address?.zip}`
                     : "No address provided"}
                 </p>
               </div>
               <img
-                src={order.product.productImage}
-                alt={order.product.productName}
+                src={order?.product?.productImage}
+                alt={order?.product?.productName}
                 className="w-20 h-20 object-cover ml-4 rounded-md"
               />
               {!order.cancelled ? (

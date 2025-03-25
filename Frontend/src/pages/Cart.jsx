@@ -12,7 +12,7 @@ const Cart = () => {
       alert("Login First")
       navigate('/login')
     }
-      fetch("http://localhost:8080/cart/products",{
+      fetch("https://ecommerce-follow-along-pjqp.onrender.com/cart/products",{
         method:"GET",
         headers: {authorization:`Bearer ${token}`,
           "Content-Type": "application/json"}
@@ -31,7 +31,7 @@ const Cart = () => {
   
   const handleIncrease = async (cartItemId) => {
     try {
-      await axios.put(`http://localhost:8080/cart/increase/${cartItemId}`);
+      await axios.put(`https://ecommerce-follow-along-pjqp.onrender.com/cart/increase/${cartItemId}`);
       fetchCartItems(); 
     } catch (error) {
       console.error("Error increasing quantity:", error);
@@ -40,7 +40,7 @@ const Cart = () => {
 
   const handleDecrease = async (cartItemId) => {
     try {
-      await axios.put(`http://localhost:8080/cart/decrease/${cartItemId}`);
+      await axios.put(`https://ecommerce-follow-along-pjqp.onrender.com/cart/decrease/${cartItemId}`);
       fetchCartItems();
     } catch (error) {
       console.error("Error decreasing quantity:", error);
@@ -64,15 +64,15 @@ const Cart = () => {
               className="flex items-center justify-between p-4 bg-white shadow-md rounded-lg mb-4"
             >
               <img
-                src={item.product.productImage[0]}
-                alt={item.product.productName}
+                src={item?.product?.productImage[0]}
+                alt={item?.product?.productName}
                 className="w-24 h-24 object-cover rounded-md"
               />
               <div>
                 <h3 className="text-xl font-semibold">
-                  {item.product.productName}
+                  {item?.product?.productName}
                 </h3>
-                <p className="text-gray-600">${item.product.productPrice}</p>
+                <p className="text-gray-600">${item?.product?.productPrice}</p>
               </div>
               <div className="flex items-center">
                 <button

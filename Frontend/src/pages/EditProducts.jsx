@@ -11,8 +11,9 @@ const EditProducts = () => {
     productPrice: "",
     productImage: [],
   });
+
   useEffect(() => {
-    fetch(`http://localhost:8080/product/${id}`)
+    fetch(`https://ecommerce-follow-along-pjqp.onrender.com/product/${id}`)
       .then((res) => res.json())
       .then((res) => {
         if (res.data) {
@@ -20,35 +21,49 @@ const EditProducts = () => {
             productName: res.data.productName || "",
             productDescription: res.data.productDescription || "",
             productPrice: res.data.productPrice || "",
-            productImage: res.data.productImage || [], 
+            productImage: Array.isArray(res.data.productImage)
+              ? res.data.productImage
+              : [res.data.productImage], // Ensure it's always an array
           });
         }
       })
       .catch((err) => console.log("Error fetching product:", err));
   }, [id]);
+
   const handleChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
+
   const handleImageChange = (e) => {
-    const filesArray = Array.from(e.target.files)
+    const filesArray = Array.from(e.target.files);
     setProduct((prevProduct) => ({
       ...prevProduct,
-      productImage: [...prevProduct.productImage, ...filesArray], 
+      productImage: [...prevProduct.productImage, ...filesArray],
     }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("productName", product.productName);
     formData.append("productDescription", product.productDescription);
     formData.append("productPrice", product.productPrice);
+
+    // Ensure images are properly appended
     product.productImage.forEach((image) => {
-      formData.append("productImage[]", image);
+      if (image instanceof File) {
+        formData.append("productImage", image);
+      }
     });
+
     try {
-      await axios.put(`http://localhost:8080/product/update/${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.put(
+        `https://ecommerce-follow-along-pjqp.onrender.com/product/update/${id}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("Product updated successfully!");
       navigate("/");
     } catch (error) {

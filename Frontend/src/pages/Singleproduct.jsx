@@ -8,7 +8,7 @@ const Singleproduct = () => {
 
     const fetchData=async()=>{
         try {
-            let res = await fetch(`http://localhost:8080/product/${id}`)
+            let res = await fetch(`https://ecommerce-follow-along-pjqp.onrender.com/product/${id}`)
             res = await res.json()
             console.log(res)
             

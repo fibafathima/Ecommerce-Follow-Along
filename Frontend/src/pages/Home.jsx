@@ -15,7 +15,7 @@ const Home = () => {
   // let email=useSelector((state)=>state.user.email)
 
   useEffect(()=>{
-    fetch("http://localhost:8080/product").then((res)=>{
+    fetch("https://ecommerce-follow-along-pjqp.onrender.com/product").then((res)=>{
       return res.json();
     }).then((res)=>{
       console.log(res)
@@ -43,7 +43,7 @@ const Home = () => {
     if (!confirmDelete) return;
     try {
       let response = await axios.delete(
-        `http://localhost:8080/product/delete/${id}`
+        `https://ecommerce-follow-along-pjqp.onrender.com/product/delete/${id}`
       );
       
       console.log(response.data.message);

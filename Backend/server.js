@@ -12,7 +12,11 @@ const {productRouter} = require('./routes/product.route')
 const {userRouter} = require('./routes/user.route')
 const {cartRouter} = require('./routes/cart.route')
 const {orderRouter} = require('./routes/order.route')
-app.use(cors());
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+
+}));
 app.use(express.static('uploads'))
 app.use(express.json())
 const Port=process.env.PORT

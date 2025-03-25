@@ -15,7 +15,7 @@ const EditProductForm = ({ product, onUpdate, onCancel }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/updateProduct/${product._id}`, {
+      const response = await fetch(`https://ecommerce-follow-along-pjqp.onrender.com/updateProduct/${product._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
